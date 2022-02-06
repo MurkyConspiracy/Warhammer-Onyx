@@ -5,10 +5,30 @@
     xmlns:local="using:Warhammer_Onyx"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d" Background="#FF44414A">
 
-    <Grid>
 
+    <Grid x:Name="uxPrimaryGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="uxColumnGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+    <Button x:Name="uxMainButton" Grid.Row="0" BorderThickness="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="uxMainButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Assets/Square44x44Logo.altform-unplated_targetsize-256.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+        </Grid>
     </Grid>
+
 </Page>

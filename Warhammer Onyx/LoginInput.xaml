@@ -1,0 +1,19 @@
+﻿<ContentDialog
+    x:Class="Warhammer_Onyx.LoginInput"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Warhammer_Onyx"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="SQL Connection Login"
+    PrimaryButtonText="Login"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid >
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=ContentDialog, Path=Username, Mode=TwoWay}" PlaceholderText="Username" Width="266" Margin="0,0,0,43"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ElementName=ContentDialog, Path=Password, Mode=TwoWay}" PlaceholderText="Password" Width="266" Margin="0,37,0,5"/>
+    </Grid>
+</ContentDialog>

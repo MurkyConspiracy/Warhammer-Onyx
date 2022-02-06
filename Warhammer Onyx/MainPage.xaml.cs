@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,6 +27,17 @@ namespace Warhammer_Onyx
         public MainPage()
         {
             this.InitializeComponent();
+
+        }
+
+        private async void uxMainButton_Click(object sender, RoutedEventArgs e)
+        {
+            var conIn = new LoginInput();
+            var conResult = await conIn.ShowAsync(); 
+            if(conResult == ContentDialogResult.Primary)
+            {
+                SQLHandler wfrpConnection = new SQLHandler(conIn.Username, conIn.Password);
+            }
         }
     }
 }
