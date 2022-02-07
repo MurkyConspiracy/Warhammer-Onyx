@@ -17,34 +17,17 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Warhammer_Onyx
 {
-    public sealed partial class LoginInput : ContentDialog
+    public sealed partial class LoginDialog : ContentDialog
     {
-
-        public static readonly DependencyProperty UsernameProperty = DependencyProperty.Register(
-            "Username", typeof(string), typeof(LoginInput), new PropertyMetadata(default(string)));
-
-        public static readonly DependencyProperty PasswordProperty = DependencyProperty.Register(
-            "Password", typeof(string), typeof(LoginInput), new PropertyMetadata(default(string)));
-
-        public LoginInput()
+        public SQLHandler SQLHandler;
+        public LoginDialog()
         {
             this.InitializeComponent();
         }
 
-        public string Username
-        {
-            get { return (string)GetValue(UsernameProperty); }
-            set { SetValue(UsernameProperty, value); }
-        }
-
-        public string Password
-        {
-            get { return (string)GetValue(PasswordProperty); }
-            set { SetValue(PasswordProperty, value); }
-        }
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-
+            SQLHandler = new SQLHandler(this.userNameTextBox.Text, this.passwordTextBox.Password);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

@@ -24,6 +24,7 @@ namespace Warhammer_Onyx
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        SQLHandler wfrpSQLConnection;
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,12 +33,21 @@ namespace Warhammer_Onyx
 
         private async void uxMainButton_Click(object sender, RoutedEventArgs e)
         {
-            var conIn = new LoginInput();
-            var conResult = await conIn.ShowAsync(); 
-            if(conResult == ContentDialogResult.Primary)
+            var loginDiag = new LoginDialog();
+            var loginRes = await loginDiag.ShowAsync();
+            if(loginRes == ContentDialogResult.Primary)
             {
-                SQLHandler wfrpConnection = new SQLHandler(conIn.Username, conIn.Password);
+                wfrpSQLConnection = loginDiag.SQLHandler;
             }
+            if (wfrpSQLConnection == null)
+                return;
+            if(wfrpSQLConnection.TestConnection())
+            {
+                await new MessageDialog("Connection Establsihed!").ShowAsync();
+            }
+
+
+
         }
     }
 }
